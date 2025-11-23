@@ -1,0 +1,62 @@
+baseURL = 'https://lius.me/'  # 生产环境 URL
+languageCode = 'zh-cn'
+title = 'lius'  # 你的站点标题
+theme = 'PaperMod'
+
+[params]
+  author = '刘胜'  # 你的名字
+  description = '全栈开发者，专注于前端技术和开源项目。'  # 一句简介
+  
+  # 极简外观设置
+  ShowBreadCrumbs = false
+  ShowReadingTime = false
+  ShowShareButtons = false
+  ShowPostNavLinks = false
+  ShowCodeCopyButtons = false
+  ShowRelatedPosts = false
+  
+  # 暗黑模式（可选，PaperMod 默认支持）
+  defaultTheme = "auto"  # auto/light/dark
+  
+  # 首页 profile 配置（简洁版：头像 + bio + 链接）
+  # 启用后，首页会显示一个居中的 profile 卡片，包含头像、标题、副标题和按钮
+  [params.profileMode]
+    enabled = true
+    title = "刘胜"  # 显示名字
+    subtitle = "全栈开发者 | 前端工程师"  # 副标题
+    
+    # 头像（放一张你的照片到 static/images/，或用在线 URL）
+    imageUrl = "images/avatar.jpeg"
+    
+    # 导航按钮
+    buttons = [
+      {name = "关于", url = "about/"},
+      {name = "项目", url = "projects/"},
+      {name = "博客", url = "posts/"},
+      {name = "掘金", url = "https://juejin.cn/user/3171444673228840"}
+    ]
+
+# 社交图标
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/liusheng22"
+  title = "GitHub"
+
+# 菜单（极简导航）
+[[menu.main]]
+  identifier = "about"
+  name = "关于"
+  url = "/about/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "projects"
+  name = "项目"
+  url = "/projects/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "posts"
+  name = "博客"
+  url = "/posts/"
+  weight = 30
