@@ -7,6 +7,20 @@ theme = 'PaperMod'
   author = '刘胜'  # 你的名字
   description = '全栈开发者，专注于前端技术和开源项目。'  # 一句简介
   
+  # SEO 和网站验证（用于 Google Search Console）
+  [params.analytics.google]
+    SiteVerificationTag = ""  # 在 Google Search Console 获取验证标签后填入
+  
+  # Favicon 和网站图标配置
+  [params.assets]
+    favicon = "favicon.ico"  # 放在 static/ 目录下
+    favicon16x16 = "favicon-16x16.png"
+    favicon32x32 = "favicon-32x32.png"
+    apple_touch_icon = "apple-touch-icon.png"
+    safari_pinned_tab = "safari-pinned-tab.svg"
+    theme_color = "#2e2e33"
+    msapplication_TileColor = "#2e2e33"
+  
   # 极简外观设置
   ShowBreadCrumbs = false
   ShowReadingTime = false
