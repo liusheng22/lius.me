@@ -7,23 +7,57 @@ date: 2025-11-22
 
 ## 个人简介
 
+我是一名来自**湖北武汉**的全栈开发者，热爱编程和开源。在日常工作中，我专注于使用现代前端技术栈构建高质量的应用，同时也积极参与开源社区，维护多个开源项目。
+
 - **职业：** 全栈开发者 / 前端工程师
 - **位置：** 湖北 · 武汉
 - **个人网站：** [lius.me](https://lius.me)
+- **其他网站：** [laijiayang.cn](https://laijiayang.cn)
 
 ## 技术栈
 
-- **前端：** JavaScript, TypeScript, Vue, React
-- **后端：** Node.js
-- **其他：** Nuxt.js, Next.js, uni-app
+### 前端技术
+- **框架：** Vue.js, Nuxt.js, Next.js, React
+- **语言：** JavaScript, TypeScript
+- **移动开发：** uni-app（跨平台开发）
+- **客户端开发：** Electron, Tauri
+- **构建工具：** Vite, Webpack
+
+### 后端技术
+- **运行时：** Node.js
+- **数据库：** MongoDB, MySQL
+
+## 开源项目
+
+我维护了一些开源项目，在 GitHub 上获得了不错的关注：
+
+- **[uniapp-video-player](https://github.com/liusheng22/uniapp-video-player)** ⭐ 50+ - 突破 uni-app 原生 video 层级限制的视频播放器
+- **[export-wechat-emoji](https://github.com/liusheng22/export-wechat-emoji)** ⭐ 20+ - macOS 导出微信表情包工具
+- **[Nonsense UI](https://nonsense-ui.lius.me/)** - 荒诞的组件库，专注于反人类、反直觉的荒诞交互
+- **[uni-global-component-inject](https://github.com/liusheng22/uni-global-component-inject)** - uni-app 全局组件注入
+- 更多项目请访问我的 [GitHub](https://github.com/liusheng22) 主页
+
+## 写作和分享
+
+我经常在技术社区分享开发经验和解决方案：
+
+- **掘金：** [liusheng](https://juejin.cn/user/3171444673228840) - 分享技术文章和开发心得
+- **个人博客：** [lius.me](https://lius.me) - 记录技术学习和项目经验
+- **DCloud：** [liusheng22](https://ext.dcloud.net.cn/publisher?id=202079) - 分享uni-app开发经验和解决方案
 
 ## 联系方式
 
 - **GitHub：** [@liusheng22](https://github.com/liusheng22)
-- **掘金：** [liusheng](https://juejin.cn/user/3171444673228840)
+- **邮箱：** [black.liusheng@gmail.com](mailto:black.liusheng@gmail.com)
 
 ## 关于这个网站
 
-这是一个使用 [Hugo](https://gohugo.io/) 和 [PaperMod](https://github.com/adityatelange/hugo-PaperMod) 主题构建的极简个人网站。
+网站主要用途：
+- 📝 记录技术学习和开发经验
+- 🚀 展示开源项目和作品
+- 💡 分享技术见解和解决方案
+- 🤝 与开发者社区交流
 
-欢迎访问我的项目，也欢迎与我交流技术问题。
+这是一个使用 [Hugo](https://gohugo.io/) 静态网站生成器和 [PaperMod](https://github.com/adityatelange/hugo-PaperMod) 主题构建的极简个人网站。
+
+欢迎访问我的[项目](/projects/)和[博客](/posts/)，也欢迎与我交流技术问题！
