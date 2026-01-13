@@ -17,13 +17,13 @@ date: 2025-11-22
 
 ---
 
-### [Nonsense UI](https://nonsense-ui.lius.me/)
+### [Nonsense UI](https://nonsense-ui.vercel.app/)
 
 **制造交互障碍的 Vue 3 荒诞组件实验室**
 
 一个专注于制造交互障碍的 Vue 3 整蛊组件库。拒绝用户体验，挑战直觉极限，提供反人类、反直觉的荒诞交互。虽然交互很荒诞，但代码实现非常严谨，使用 TypeScript 和 Vue 3 Composition API 开发。
 
-**相关链接：** [官方文档](https://nonsense-ui.lius.me/) | [GitHub 仓库](https://github.com/liusheng22/nonsense-ui) | [npm 包](https://www.npmjs.com/package/nonsense-ui)
+**相关链接：** [官方文档](https://nonsense-ui.vercel.app/) | [GitHub 仓库](https://github.com/liusheng22/nonsense-ui) | [npm 包](https://www.npmjs.com/package/nonsense-ui)
 
 ---
 

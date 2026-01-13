@@ -33,7 +33,7 @@ date: 2025-11-22
 
 - **[uniapp-video-player](https://github.com/liusheng22/uniapp-video-player)** ⭐ 50+ - 突破 uni-app 原生 video 层级限制的视频播放器
 - **[export-wechat-emoji](https://github.com/liusheng22/export-wechat-emoji)** ⭐ 20+ - macOS 导出微信表情包工具
-- **[Nonsense UI](https://nonsense-ui.lius.me/)** - 荒诞的组件库，专注于反人类、反直觉的荒诞交互
+- **[Nonsense UI](https://nonsense-ui.vercel.app/)** - 荒诞的组件库，专注于反人类、反直觉的荒诞交互
 - **[uni-global-component-inject](https://github.com/liusheng22/uni-global-component-inject)** - uni-app 全局组件注入
 - 更多项目请访问我的 [GitHub](https://github.com/liusheng22) 主页
 
