@@ -4,6 +4,10 @@ title = 'lius'  # 你的站点标题
 theme = 'PaperMod'
 googleAnalytics = 'G-3T25NNYNLG' # GA4 Measurement ID
 
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$', '^GA_MEASUREMENT_ID$']
+
 [taxonomies]
   tag = 'tags'
   category = 'categories'
