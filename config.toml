@@ -2,7 +2,10 @@ baseURL = '/'  # 由部署平台通过 --config 覆盖
 languageCode = 'zh-cn'
 title = 'lius'  # 你的站点标题
 theme = 'PaperMod'
-googleAnalytics = 'G-3T25NNYNLG' # GA4 Measurement ID
+
+[services]
+  [services.googleAnalytics]
+    ID = 'G-3T25NNYNLG' # GA4 Measurement ID
 
 [security]
   [security.funcs]
