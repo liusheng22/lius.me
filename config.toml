@@ -1,7 +1,12 @@
-baseURL = 'https://lius.me/'  # 生产环境 URL
+baseURL = '/'  # 由部署平台通过 --config 覆盖
 languageCode = 'zh-cn'
 title = 'lius'  # 你的站点标题
 theme = 'PaperMod'
+googleAnalytics = 'G-3T25NNYNLG' # GA4 Measurement ID
+
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
 
 [params]
   author = '刘胜'  # 你的名字
@@ -9,7 +14,7 @@ theme = 'PaperMod'
   
   # SEO 和网站验证（用于 Google Search Console）
   [params.analytics.google]
-    SiteVerificationTag = ""  # 在 Google Search Console 获取验证标签后填入
+    SiteVerificationTag = ""  # 在 Google Search Console
   
   # Favicon 和网站图标配置
   [params.assets]

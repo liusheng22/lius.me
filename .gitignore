@@ -34,6 +34,7 @@ Desktop.ini
 .env.*.local
 
 # Node.js (如果使用 npm/yarn 管理前端资源)
+README/
 node_modules/
 npm-debug.log*
 yarn-debug.log*
