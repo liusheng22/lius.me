@@ -79,3 +79,9 @@ googleAnalytics = 'G-3T25NNYNLG' # GA4 Measurement ID
   name = "博客"
   url = "/posts/"
   weight = 30
+
+[[menu.main]]
+  identifier = "categories"
+  name = "分类"
+  url = "/categories/"
+  weight = 40
