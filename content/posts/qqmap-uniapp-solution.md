@@ -3,6 +3,7 @@ title: "腾讯地图 SDK 接入到 uniapp 的多端解决方案"
 date: 2025-11-27
 draft: false
 tags: ["uniapp", "腾讯地图", "SDK", "Vue3", "Vite"]
+categories: ["uniapp", "SDK", "Vue3", "Vite"]
 description: "基于腾讯官方微信小程序JavaScript SDK v1.2，专为现代化开发环境打造的ES模块版本"
 ---
 

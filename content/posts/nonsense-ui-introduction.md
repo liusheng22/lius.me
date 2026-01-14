@@ -3,6 +3,7 @@ title: "Nonsense UI：一个专门制造交互障碍的 Vue 3 荒诞组件库"
 date: 2026-01-09
 draft: false
 tags: ["Vue3", "Nonsense UI", "整蛊设计", "反人类", "无厘头", "反直觉"]
+categories: ["Vue3", "Nonsense UI"]
 description: "介绍 Nonsense UI - 一个专注于制造交互障碍的 Vue 3 整蛊组件库，拒绝用户体验，挑战直觉极限。"
 ---
 

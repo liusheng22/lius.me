@@ -3,6 +3,7 @@ title: "Capacitor + React：iOS 侧滑返回手势（WKWebView 原生方案）"
 date: 2026-01-13
 draft: false
 tags: ["Capacitor", "iOS", "WKWebView", "React", "allowsBackForwardNavigationGestures", "手势返回", "CAPBridgeViewController"]
+categories: ["iOS", "Capacitor"]
 description: "在 Capacitor iOS 容器中为 React SPA 启用系统原生侧滑返回：allowsBackForwardNavigationGestures + scrollRestoration 配合，避免返回预览白屏。"
 ---
 
