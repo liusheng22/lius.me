@@ -1,0 +1,6 @@
+/admin/*
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+
+/admin/config.yml
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+
