@@ -1,0 +1,45 @@
+backend:
+  name: github
+  repo: liusheng22/lius.me
+  branch: main
+  auth_type: pkce
+  app_id: Ov23liwfFrsF6KIPGsb1
+
+media_folder: static/uploads
+public_folder: /uploads
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: posts
+    label: 博客
+    folder: content/posts
+    create: true
+    slug: "{{slug}}"
+    format: frontmatter
+    extension: md
+    fields:
+      - { label: 标题, name: title, widget: string }
+      - { label: 日期, name: date, widget: datetime }
+      - { label: 草稿, name: draft, widget: boolean, default: true }
+      - { label: 简介, name: description, widget: string, required: false }
+      - { label: 分类, name: categories, widget: list, required: false }
+      - { label: 标签, name: tags, widget: list, required: false }
+      - { label: 正文, name: body, widget: markdown }
+
+  - name: treehole
+    label: 树洞
+    folder: content/treehole
+    create: true
+    slug: "{{slug}}"
+    format: frontmatter
+    extension: md
+    fields:
+      - { label: 标题, name: title, widget: string }
+      - { label: 日期, name: date, widget: datetime }
+      - { label: 草稿, name: draft, widget: boolean, default: true }
+      - { label: 简介, name: description, widget: string, required: false }
+      - { label: robotsNoIndex, name: robotsNoIndex, widget: boolean, default: true }
+      - { label: searchHidden, name: searchHidden, widget: boolean, default: true }
+      - { label: 标签, name: tags, widget: list, required: false }
+      - { label: 正文, name: body, widget: markdown }
