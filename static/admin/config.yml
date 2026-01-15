@@ -2,8 +2,7 @@ backend:
   name: github
   repo: liusheng22/lius.me
   branch: main
-  auth_type: pkce
-  app_id: Ov23liwfFrsF6KIPGsb1
+  auth_endpoint: https://decap-oauth.black-liusheng.workers.dev/auth
 
 media_folder: static/uploads
 public_folder: /uploads
