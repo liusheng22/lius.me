@@ -3,7 +3,7 @@ backend:
   repo: liusheng22/lius.me
   branch: main
   base_url: https://decap-oauth.black-liusheng.workers.dev
-  auth_endpoint: /auth
+  auth_endpoint: auth
 
 media_folder: static/uploads
 public_folder: /uploads
