@@ -46,3 +46,6 @@ yarn.lock
 *.bak
 *.cache
 
+
+# Cloudflare Worker 文件（不提交）
+decap-oauth/

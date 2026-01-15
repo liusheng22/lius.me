@@ -6,32 +6,6 @@
     <title>Decap CMS</title>
   </head>
   <body>
-    <!-- OAuth 回调处理脚本 -->
-    <script>
-      // 检查 URL 中是否有 token（从 OAuth 回调返回时）
-      if (window.location.hash.includes('access_token=')) {
-        const params = new URLSearchParams(window.location.hash.substring(1));
-        const token = params.get('access_token');
-        const fromExternal = params.get('from');
-        
-        if (token && fromExternal === 'external') {
-          // 模拟 postMessage 事件，让 Decap CMS 接收 token
-          const authData = {
-            token: token,
-            provider: 'github'
-          };
-          
-          // 触发一个自定义事件
-          window.postMessage(
-            'authorization:github:success:' + JSON.stringify(authData),
-            window.location.origin
-          );
-          
-          // 清理 URL
-          window.history.replaceState({}, document.title, window.location.pathname + '#/');
-        }
-      }
-    </script>
     <script data-cfasync="false" src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
   </body>
 </html>
