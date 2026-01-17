@@ -6,4 +6,398 @@
     });
   });
 </script>
+<style>
+  .treehole-card {
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    margin: 16px 0;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  }
+  .treehole-card__header {
+    margin-bottom: 8px;
+  }
+  .treehole-card__title {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  .treehole-card__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .treehole-card__meta {
+    color: var(--secondary);
+    font-size: 0.85rem;
+  }
+  .treehole-card--quote {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 24px 0 !important;
+  }
+  .treehole-card--quote .treehole-card__header {
+    margin-bottom: 12px;
+    padding-left: 4px;
+  }
+  .treehole-quote {
+    display: block;
+    text-decoration: none !important;
+    color: inherit !important;
+    position: relative;
+    border-radius: 14px;
+    line-height: 1.75;
+    padding: 18px 18px 16px;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .treehole-quote:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  }
+  .treehole-quote__date {
+    font-size: 0.75rem;
+    color: var(--secondary);
+    opacity: 0.6;
+    margin-bottom: 8px;
+    font-family: var(--font-family, sans-serif);
+  }
+  .treehole-quote__body {
+    font-size: 1.05rem;
+    font-weight: 550;
+    letter-spacing: 0.2px;
+  }
+  .treehole-quote__body > :first-child { margin-top: 0; }
+  .treehole-quote__body > :last-child { margin-bottom: 0; }
+  .treehole-quote__meta {
+    margin-top: 12px;
+    color: var(--secondary);
+  }
+  .treehole-quote__author {
+    font-weight: 600;
+  }
+  .treehole-quote__source {
+    font-size: 0.85rem;
+  }
 
+  /* Paper/Bookmark Refactored Style */
+  .treehole-quote--paper {
+    background-color: var(--entry) !important;
+    background-image: 
+      linear-gradient(90deg, transparent 39px, rgba(255, 100, 100, 0.6) 39px, rgba(255, 100, 100, 0.6) 41px, transparent 41px),
+      linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px) !important;
+    background-size: 100% 100%, 100% 1.6rem !important; /* Horizontal lines */
+    padding: 44px 24px 20px 56px !important;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    position: relative;
+    overflow: visible; 
+  }
+
+  .treehole-quote--paper .treehole-quote__date {
+    position: absolute;
+    top: 12px;
+    left: 56px;
+    margin: 0;
+    font-family: "Georgia", serif;
+    font-style: italic;
+    opacity: 0.5;
+  }
+
+  .treehole-quote--paper:hover {
+    background: var(--entry) linear-gradient(90deg, transparent 39px, rgba(255, 100, 100, 0.6) 39px, rgba(255, 100, 100, 0.6) 41px, transparent 41px),
+      linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px) !important;
+    background-size: 100% 100%, 100% 1.6rem !important;
+  }
+  .treehole-quote--paper::before {
+    /* Refined Bookmark Ribbon */
+    content: "";
+    position: absolute;
+    right: 28px;
+    top: -6px;
+    width: 14px;
+    height: 42px;
+    background: #b33939; /* Deep Crimson */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 88%, 0 100%);
+    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.15));
+    z-index: 10;
+  }
+
+  .treehole-quote--paper::after {
+    /* Subtle paper stack effect */
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    right: -2px;
+    width: 100%;
+    height: 100%;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    z-index: -1;
+    border-radius: 4px;
+  }
+
+  .treehole-quote--paper .treehole-quote__body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", serif;
+    line-height: 1.6rem; /* Match background lines */
+  }
+
+  /* Minimal Style Refactored - Modern Zen */
+  .treehole-quote--minimal {
+    padding: 24px 28px 22px;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--secondary);
+    border-radius: 4px 12px 12px 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    position: relative;
+  }
+  .treehole-quote--minimal:hover {
+    background: var(--entry) !important;
+  }
+  .treehole-quote--minimal .treehole-quote__body {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--primary);
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  /* Literary Style Refactored - Classic Print */
+  .treehole-quote--literary {
+    padding: 50px 30px 40px;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    position: relative;
+    font-family: "Georgia", "Nimbus Roman No9 L", "Songti SC", "Source Han Serif SC", serif;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  }
+  .treehole-quote--literary:hover {
+    background: var(--entry) !important;
+  }
+
+  .treehole-quote--literary .treehole-quote__date {
+    margin: 20px 0 0;
+    order: 3; /* Move to bottom if flexed, but here we just place it last */
+    font-style: italic;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+
+  .treehole-quote--literary::before,
+  .treehole-quote--literary::after {
+    content: "“";
+    position: absolute;
+    font-size: 80px;
+    font-family: serif;
+    color: var(--secondary);
+    opacity: 0.12;
+    line-height: 1;
+  }
+
+  .treehole-quote--literary::before {
+    top: 10px;
+    left: 15px;
+  }
+
+  .treehole-quote--literary::after {
+    content: "”";
+    bottom: -20px;
+    right: 15px;
+  }
+
+  .treehole-quote--literary .treehole-quote__body {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--primary);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .treehole-quote--literary .treehole-quote__meta {
+    border-top: none;
+    margin-top: 0;
+    font-style: normal;
+    font-family: var(--font-family, sans-serif);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+
+  /* Sticky Note Style */
+  .treehole-quote--sticky {
+    background: #fff9c4; /* Soft Yellow */
+    color: #5d4037;
+    padding: 30px 25px 25px;
+    border-radius: 2px;
+    box-shadow: 2px 10px 15px rgba(0,0,0,0.05);
+    transform: rotate(-1.5deg);
+    position: relative;
+    border: none;
+    transition: transform 0.3s ease;
+  }
+  .treehole-quote--sticky:hover {
+    transform: rotate(0deg) scale(1.02);
+  }
+  .treehole-quote--sticky::before {
+    /* Washi Tape Effect */
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    backdrop-filter: blur(1px);
+    z-index: 2;
+  }
+  .treehole-quote--sticky .treehole-quote__date {
+    color: rgba(93, 64, 55, 0.6);
+  }
+  .treehole-quote--sticky .treehole-quote__body {
+    font-family: "Kaiti", "STKaiti", serif;
+    font-size: 1.1rem;
+  }
+
+  /* Brutalism Style */
+  .treehole-quote--brutal {
+    background: var(--entry);
+    border: 3px solid var(--primary);
+    box-shadow: 8px 8px 0px var(--primary);
+    padding: 25px;
+    border-radius: 0;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+  .treehole-quote--brutal:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 12px 12px 0px var(--primary);
+  }
+  .treehole-quote--brutal .treehole-quote__body {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+  }
+  .treehole-quote--brutal .treehole-quote__meta {
+    border-top: 2px solid var(--primary);
+    padding-top: 10px;
+  }
+
+  /* Glassmorphism Style */
+  .treehole-quote--glass {
+    background: rgba(var(--primary-rgb), 0.01);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--primary-rgb), 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+    padding: 30px;
+  }
+  .treehole-quote--glass .treehole-quote__body {
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+
+  /* Terminal Style */
+  .treehole-quote--terminal {
+    background: #1e1e1e;
+    color: #d4d4d4 !important;
+    font-family: "Fira Code", "Consolas", monospace;
+    padding: 45px 25px 25px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  .treehole-quote--terminal::before {
+    /* Terminal Buttons */
+    content: "● ● ●";
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #ff5f56;
+    text-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f;
+    opacity: 0.8;
+  }
+  .treehole-quote--terminal .treehole-quote__body::before {
+    content: "> ";
+    color: #007acc;
+    font-weight: bold;
+  }
+  .treehole-quote--terminal .treehole-quote__date,
+  .treehole-quote--terminal .treehole-quote__meta {
+    color: #888 !important;
+    font-size: 0.75rem;
+  }
+
+  html[data-theme="dark"] .treehole-quote--sticky {
+    background: #3e3e2a; /* Muted Dark Yellow */
+    color: #e0e0b0;
+  }
+  html[data-theme="dark"] .treehole-quote--sticky::before {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  html[data-theme="dark"] .treehole-quote--sticky .treehole-quote__date {
+    color: rgba(224, 224, 176, 0.6);
+  }
+
+  html[data-theme="dark"] .treehole-quote--paper {
+    background-image: 
+      linear-gradient(90deg, transparent 39px, rgba(255, 100, 100, 0.15) 39px, rgba(255, 100, 100, 0.15) 40px, transparent 40px),
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-color: var(--entry);
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  html[data-theme="dark"] .treehole-quote--paper:hover {
+    background: var(--entry) linear-gradient(90deg, transparent 39px, rgba(255, 100, 100, 0.15) 39px, rgba(255, 100, 100, 0.15) 40px, transparent 40px),
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px) !important;
+    background-size: 100% 100%, 100% 1.6rem !important;
+  }
+  html[data-theme="dark"] .treehole-quote--paper::before {
+    background: #8e2e2e;
+    filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.4));
+  }
+  html[data-theme="dark"] .treehole-quote--paper::after {
+    background: #2a2b2d; /* Slightly different from entry for stacking */
+  }
+  html[data-theme="dark"] .treehole-quote--minimal {
+    background: var(--entry);
+    border-left-color: var(--secondary);
+    box-shadow: none;
+  }
+  html[data-theme="dark"] .treehole-quote--minimal .treehole-quote__body {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  html[data-theme="dark"] .treehole-quote--literary {
+    background: var(--entry);
+  }
+  html[data-theme="dark"] .treehole-quote--literary .treehole-quote__date {
+    color: var(--secondary);
+    opacity: 0.5;
+  }
+  html[data-theme="dark"] .treehole-quote--literary::before,
+  html[data-theme="dark"] .treehole-quote--literary::after {
+    color: #fff;
+    opacity: 0.1;
+  }
+  .treehole-bookmark__link {
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .treehole-bookmark__summary {
+    margin: 8px 0 0;
+    color: var(--secondary);
+  }
+</style>

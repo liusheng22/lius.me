@@ -1,0 +1,32 @@
+{{- define "main" -}}
+{{- $kind := .Params.treeholeType | default "note" -}}
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    <div class="post-meta">{{ .Date.Format "2006-01-02" }}</div>
+  </header>
+
+  <div class="post-content">
+    {{- if eq $kind "quote" -}}
+      {{- $style := .Params.quoteStyle | default "paper" -}}
+      <div class="treehole-quote treehole-quote--{{ $style }}">
+        <div class="treehole-quote__body">
+          {{ .Params.quote | default .Content | markdownify }}
+        </div>
+        {{- if or .Params.quoteAuthor .Params.quoteSource -}}
+        <div class="treehole-quote__meta">
+          {{- with .Params.quoteAuthor -}}
+          <div class="treehole-quote__author">— {{ . }}</div>
+          {{- end -}}
+          {{- with .Params.quoteSource -}}
+          <div class="treehole-quote__source">{{ . }}</div>
+          {{- end -}}
+        </div>
+        {{- end -}}
+      </div>
+    {{- else -}}
+      {{ .Content }}
+    {{- end -}}
+  </div>
+</article>
+{{- end -}}

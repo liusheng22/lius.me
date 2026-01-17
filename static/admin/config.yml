@@ -27,19 +27,25 @@ collections:
       - { label: 标签, name: tags, widget: list, required: false }
       - { label: 正文, name: body, widget: markdown }
 
-  - name: treehole
-    label: 树洞
+  - name: treehole_quote
+    label: 树洞 · 书摘
     folder: content/treehole
     create: true
-    slug: "{{slug}}"
+    slug: "quote-{{slug}}"
     format: frontmatter
     extension: md
     fields:
+      - { label: 类型, name: treeholeType, widget: hidden, default: "quote" }
       - { label: 标题, name: title, widget: string }
       - { label: 日期, name: date, widget: datetime }
       - { label: 草稿, name: draft, widget: boolean, default: true }
-      - { label: 简介, name: description, widget: string, required: false }
+      - { label: 书摘样式, name: quoteStyle, widget: select, options: ["paper", "minimal", "literary"], default: "paper" }
+      - { label: 引用内容, name: quote, widget: text }
+      - { label: 引用作者, name: quoteAuthor, widget: string, required: false }
+      - { label: 引用来源, name: quoteSource, widget: string, required: false }
       - { label: robotsNoIndex, name: robotsNoIndex, widget: boolean, default: true }
       - { label: searchHidden, name: searchHidden, widget: boolean, default: true }
       - { label: 标签, name: tags, widget: list, required: false }
-      - { label: 正文, name: body, widget: markdown }
+      - { label: 备注（可选）, name: body, widget: markdown, required: false }
+
+  # 如果你不需要“书签”类型，可以删除 treehole_bookmark 这个 collection。

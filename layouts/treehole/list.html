@@ -12,11 +12,49 @@
 {{- if not $pages -}}
 <p>暂无内容。</p>
 {{- else -}}
-<ul class="terms-tags">
   {{- range $pages.ByDate.Reverse -}}
-  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-  {{- end -}}
-</ul>
-{{- end -}}
-{{- end -}}
+  {{- $kind := .Params.treeholeType | default "note" -}}
+  <article class="treehole-card {{ if eq $kind "quote" }}treehole-card--quote{{ end }}">
+    {{- if ne $kind "quote" -}}
+    <header class="treehole-card__header">
+      {{- if .Title -}}
+      <h2 class="treehole-card__title">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </h2>
+      {{- end -}}
+      <div class="treehole-card__meta">{{ .Date.Format "2006-01-02" }}</div>
+    </header>
+    {{- end -}}
 
+    {{- if eq $kind "quote" -}}
+      {{- $style := .Params.quoteStyle | default "paper" -}}
+      <a href="{{ .RelPermalink }}" class="treehole-quote treehole-quote--{{ $style }}">
+        {{- if ne $style "literary" -}}
+        <div class="treehole-quote__date">{{ .Date.Format "2006-01-02" }}</div>
+        {{- end -}}
+        <div class="treehole-quote__body">
+          {{ .Params.quote | default .Summary | markdownify }}
+        </div>
+        {{- if or .Params.quoteAuthor .Params.quoteSource (eq $style "literary") -}}
+        <div class="treehole-quote__meta">
+          {{- with .Params.quoteAuthor -}}
+          <div class="treehole-quote__author">— {{ . }}</div>
+          {{- end -}}
+          {{- with .Params.quoteSource -}}
+          <div class="treehole-quote__source">{{ . }}</div>
+          {{- end -}}
+          {{- if eq $style "literary" -}}
+          <div class="treehole-quote__date">{{ .Date.Format "2006-01-02" }}</div>
+          {{- end -}}
+        </div>
+        {{- end -}}
+      </a>
+    {{- else -}}
+      <div class="treehole-note">
+        {{ .Summary | markdownify }}
+      </div>
+    {{- end -}}
+  </article>
+  {{- end -}}
+{{- end -}}
+{{- end -}}
