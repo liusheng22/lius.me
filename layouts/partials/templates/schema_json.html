@@ -1,0 +1,88 @@
+{{- $publisherType := (site.Params.schema.publisherType | default "Organization") -}}
+{{- $publisherName := site.Title -}}
+{{- $publisherLogo := (site.Params.assets.favicon | default "favicon.ico" | absURL) -}}
+
+{{- if .IsHome -}}
+  {{- $sameAs := slice -}}
+  {{- if site.Params.schema.sameAs -}}
+    {{- range site.Params.schema.sameAs -}}
+      {{- $sameAs = $sameAs | append (trim . " ") -}}
+    {{- end -}}
+  {{- else -}}
+    {{- range site.Params.SocialIcons -}}
+      {{- $sameAs = $sameAs | append (trim .url " ") -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $data := dict
+    "@context" "https://schema.org"
+    "@type" ($publisherType | title)
+    "name" $publisherName
+    "url" site.Home.Permalink
+    "description" (site.Params.description | plainify | truncate 180)
+    "sameAs" $sameAs
+  -}}
+  {{- if eq $publisherType "Person" -}}
+    {{- $data = merge $data (dict "image" $publisherLogo) -}}
+  {{- else -}}
+    {{- $data = merge $data (dict "logo" $publisherLogo) -}}
+  {{- end -}}
+
+<script type="application/ld+json">{{ $data | jsonify | safeJS }}</script>
+
+{{- else if .IsPage -}}
+  {{- $description := (.Description | default .Summary | plainify) -}}
+
+  {{- $keywords := slice -}}
+  {{- with .Params.keywords -}}
+    {{- range . -}}{{- $keywords = $keywords | append . -}}{{- end -}}
+  {{- else -}}
+    {{- with .Params.tags -}}
+      {{- range . -}}{{- $keywords = $keywords | append . -}}{{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $authorVal := (.Params.author | default site.Params.author) -}}
+  {{- $authors := slice -}}
+  {{- if (or (eq (printf "%T" $authorVal) "[]string") (eq (printf "%T" $authorVal) "[]interface {}")) -}}
+    {{- range $authorVal -}}
+      {{- $authors = $authors | append (dict "@type" "Person" "name" .) -}}
+    {{- end -}}
+  {{- else if $authorVal -}}
+    {{- $authors = $authors | append (dict "@type" "Person" "name" $authorVal) -}}
+  {{- end -}}
+
+  {{- $data := dict
+    "@context" "https://schema.org"
+    "@type" "BlogPosting"
+    "headline" (.Title | plainify)
+    "name" (.Title | plainify)
+    "description" $description
+    "keywords" $keywords
+    "datePublished" (.PublishDate.Format "2006-01-02T15:04:05Z07:00")
+    "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+    "inLanguage" (.Language.Lang | default "zh-cn")
+    "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+    "publisher" (dict
+      "@type" ($publisherType | title)
+      "name" $publisherName
+      "logo" (dict "@type" "ImageObject" "url" $publisherLogo)
+    )
+  -}}
+
+  {{- if gt (len $authors) 0 -}}
+    {{- $data = merge $data (dict "author" $authors) -}}
+  {{- end -}}
+
+<script type="application/ld+json">{{ $data | jsonify | safeJS }}</script>
+
+{{- else if .IsSection -}}
+  {{- $data := dict
+    "@context" "https://schema.org"
+    "@type" "WebPage"
+    "name" (.Title | plainify)
+    "url" .Permalink
+  -}}
+<script type="application/ld+json">{{ $data | jsonify | safeJS }}</script>
+{{- end -}}
+

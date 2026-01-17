@@ -28,7 +28,7 @@ collections:
       - { label: 正文, name: body, widget: markdown }
 
   - name: treehole_quote
-    label: 树洞 · 书摘
+    label: 树洞
     folder: content/treehole
     create: true
     slug: "quote-{{year}}{{month}}{{day}}-{{hour}}{{minute}}{{second}}"
