@@ -39,7 +39,7 @@ collections:
       - { label: 标题, name: title, widget: string }
       - { label: 日期, name: date, widget: datetime }
       - { label: 草稿, name: draft, widget: boolean, default: true }
-      - { label: 书摘样式, name: quoteStyle, widget: select, options: ["paper", "minimal", "literary"], default: "paper" }
+      - { label: 书摘样式, name: quoteStyle, widget: select, options: ["paper", "minimal", "literary", "sticky", "brutal", "glass", "terminal"], default: "literary" }
       - { label: 引用内容, name: quote, widget: text }
       - { label: 引用作者, name: quoteAuthor, widget: string, required: false }
       - { label: 引用来源, name: quoteSource, widget: string, required: false }
@@ -47,5 +47,3 @@ collections:
       - { label: searchHidden, name: searchHidden, widget: boolean, default: true }
       - { label: 标签, name: tags, widget: list, required: false }
       - { label: 备注（可选）, name: body, widget: markdown, required: false }
-
-  # 如果你不需要“书签”类型，可以删除 treehole_bookmark 这个 collection。
