@@ -31,18 +31,18 @@ collections:
     label: 树洞 · 书摘
     folder: content/treehole
     create: true
-    slug: "quote-{{slug}}"
+    slug: "quote-{{year}}{{month}}{{day}}-{{hour}}{{minute}}{{second}}"
     format: frontmatter
     extension: md
     fields:
       - { label: 类型, name: treeholeType, widget: hidden, default: "quote" }
-      - { label: 标题, name: title, widget: string }
       - { label: 日期, name: date, widget: datetime }
       - { label: 草稿, name: draft, widget: boolean, default: true }
       - { label: 书摘样式, name: quoteStyle, widget: select, options: ["paper", "minimal", "literary", "sticky", "brutal", "glass", "terminal"], default: "literary" }
       - { label: 引用内容, name: quote, widget: text }
       - { label: 引用作者, name: quoteAuthor, widget: string, required: false }
       - { label: 引用来源, name: quoteSource, widget: string, required: false }
+      - { label: 标题（可选）, name: title, widget: string, required: false }
       - { label: robotsNoIndex, name: robotsNoIndex, widget: boolean, default: true }
       - { label: searchHidden, name: searchHidden, widget: boolean, default: true }
       - { label: 标签, name: tags, widget: list, required: false }
