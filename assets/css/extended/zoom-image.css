@@ -1,0 +1,57 @@
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  background: var(--entry);
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.post-content img.zoomable {
+  cursor: zoom-in;
+}
+
+/* Lightweight "click to zoom" overlay */
+.zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.zoom-overlay.is-open {
+  display: flex;
+}
+
+.zoom-overlay__img {
+  max-width: min(1200px, 96vw);
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #fff;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+.zoom-overlay__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.zoom-overlay__close:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
