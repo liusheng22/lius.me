@@ -3,13 +3,13 @@ title: "export-wechat-emoji：一键把微信收藏表情包导出来（方便�
 date: 2026-01-19
 draft: false
 tags: ["微信", "表情包", "飞书", "企微", "钉钉", "Tauri", "macOS"]
-categories: ["工具", "效率"]
+categories: ["微信", "macOS"]
 description: "一个 macOS 小工具：自动读取本机微信收藏表情包并批量导出到本地，按 50 张分组，方便导入飞书/企微/钉钉，也可以用来备份。"
 ---
 
 很多人都有同一个烦恼：微信里收藏了一堆顺手的表情包，但到了飞书/企微/钉钉这些工作 IM 里就用不上了。手动一张张保存太折磨，截图又糊。
 
-所以我做了个小工具：`export-wechat-emoji`，目标就一句话——把「微信收藏」里的表情包，尽量省事地导出到本地: [下载地址](https://github.com/liusheng22/export-wechat-emoji/releases)。
+所以我做了个小工具：[export-wechat-emoji](https://github.com/liusheng22/export-wechat-emoji)，目标就是一键把微信收藏表情包导出来（方便用于导入飞书/企微/钉钉等平台进行斗图！）。
 
 ## 它能干嘛
 
@@ -21,9 +21,27 @@ description: "一个 macOS 小工具：自动读取本机微信收藏表情包�
 
 ## 怎么用（大概三步）
 
-1. 去 GitHub Releases 下载最新版本（macOS）：<https://github.com/liusheng22/export-wechat-emoji/releases>
-2. 打开软件，选账号（如果你有多个微信账号）
+1. 免费下载 [最新版本客户端（macOS）](https://github.com/liusheng22/export-wechat-emoji/releases)
+2. 打开软件，选择要导出的微信目录（电脑登录过多个微信的话这里会有好几个）
 3. 点导出，然后去导出目录里按文件夹分批导入到飞书/企微/钉钉
+
+## 图文演示（4 步）
+
+1) 进入客户端
+
+![进入客户端](/images/export-wechat-emoji/00-image.png)
+
+2) 选择目标微信文件夹（电脑可能登录过多个微信，所以需要选对目录）
+
+![选择目标文件夹](/images/export-wechat-emoji/01-image.png)
+
+3) 预览表情包确认选对了；不对就切换文件夹再预览
+
+![预览表情包](/images/export-wechat-emoji/02-image.png)
+
+4) 点击“导出”开始导出，中途可以取消；导出完点“打开下载目录”就能看到全部表情包（按 50 张分组）
+
+![开始导出](/images/export-wechat-emoji/03-image.png)
 
 ## 注意事项
 
@@ -31,11 +49,9 @@ description: "一个 macOS 小工具：自动读取本机微信收藏表情包�
 - 需要你电脑上装了微信客户端，并且登录过、收藏里确实有表情包
 - 微信客户端升级后数据结构可能会变；如果导出失败，欢迎提 Issue 我来跟进
 
-## 我比较在意的点
+## 你可能关心的问题
 
-- 全程本地处理，不会把任何东西上传到服务器
-- 这是个「搬运/备份」工具：你导出后怎么用（导入到哪个平台）由你决定
+> Q：是否存在隐私安全问题：
 
-## 项目地址
-
-- GitHub：<https://github.com/liusheng22/export-wechat-emoji>
+- A：全程本地处理，不会把任何东西上传到服务器
+- 这只是个「搬运/备份」工具，你导出后怎么用（导入到哪个平台）由你决定，与我无关
