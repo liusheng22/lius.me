@@ -31,6 +31,8 @@ collections:
     label: 树洞
     folder: content/treehole
     create: true
+    identifier_field: quote
+    summary: "{{quote}}{{body}}"
     slug: "quote-{{year}}{{month}}{{day}}-{{hour}}{{minute}}{{second}}"
     format: frontmatter
     extension: md
