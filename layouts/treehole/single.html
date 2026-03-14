@@ -15,7 +15,7 @@
       {{- $style := .Params.quoteStyle | default "paper" -}}
       <div class="treehole-quote treehole-quote--{{ $style }}">
         <div class="treehole-quote__body">
-          {{ .Params.quote | default .Content | markdownify }}
+          {{ partial "treehole-quote-body.html" (dict "page" . "fallback" "content") }}
         </div>
         {{- if or .Params.quoteAuthor .Params.quoteSource -}}
         <div class="treehole-quote__meta">

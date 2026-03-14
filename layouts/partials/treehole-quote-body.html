@@ -1,0 +1,11 @@
+{{- $page := .page -}}
+{{- $fallback := .fallback | default "summary" -}}
+{{- $quote := $page.Params.quote | default "" | strings.TrimSpace -}}
+
+{{- if $quote -}}
+  {{- $quote -}}
+{{- else if eq $fallback "content" -}}
+  {{- $page.Content -}}
+{{- else -}}
+  {{- $page.Summary | markdownify -}}
+{{- end -}}

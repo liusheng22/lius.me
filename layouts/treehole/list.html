@@ -40,7 +40,7 @@
 	        <div class="treehole-quote__date">{{ .Date.Format "2006-01-02" }}</div>
 	        {{- end -}}
         <div class="treehole-quote__body">
-          {{ .Params.quote | default .Summary | markdownify }}
+          {{ partial "treehole-quote-body.html" (dict "page" . "fallback" "summary") }}
         </div>
         {{- if or .Params.quoteAuthor .Params.quoteSource (eq $style "literary") -}}
         <div class="treehole-quote__meta">
